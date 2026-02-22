@@ -1,3 +1,5 @@
+live url:https://pure-scan-mu.vercel.app/
+
 This contains everything you need to run your app locally.
 
 **Prerequisites:**  Node.js

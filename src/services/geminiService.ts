@@ -1,7 +1,12 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { AnalysisResult } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "" });
+const apiKey = process.env.GEMINI_API_KEY || "";
+if (!apiKey) {
+  console.warn("GEMINI_API_KEY not found. Please set it in environment variables.");
+}
+
+const ai = new GoogleGenAI({ apiKey });
 
 const ANALYSIS_SCHEMA = {
   type: Type.OBJECT,
@@ -51,6 +56,10 @@ const ANALYSIS_SCHEMA = {
 };
 
 export async function analyzeIngredients(base64Image: string, userAge?: number): Promise<AnalysisResult> {
+  if (!apiKey) {
+    throw new Error("Gemini API key not configured. Please add GEMINI_API_KEY to your environment variables.");
+  }
+
   const model = "gemini-3-flash-preview";
   
   const prompt = `

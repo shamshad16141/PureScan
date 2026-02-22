@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+}
+
+@layer base {
+  html {
+    @apply transition-colors duration-500;
+  }
+  body {
+    @apply bg-stone-50 text-stone-900 font-sans antialiased transition-colors duration-500;
+  }
+}
+
+/* Explicit dark mode overrides for better compatibility */
+.dark body {
+  @apply bg-stone-950 text-stone-50;
+}
+
+/* Ensure Tailwind's dark: variant works with .dark class */
+@custom-variant dark (&:where(.dark, .dark *));
+
+.glass {
+  @apply bg-white/70 backdrop-blur-md border border-white/20 transition-colors duration-500;
+}
+.dark .glass {
+  @apply bg-stone-900/70 border-stone-800/50;
+}
+
+.gradient-bg {
+  background: radial-gradient(circle at 0% 0%, #fdfbfb 0%, #ebedee 100%);
+  @apply transition-all duration-500;
+}
+.dark .gradient-bg {
+  background: radial-gradient(circle at 0% 0%, #1c1c1c 0%, #0a0a0a 100%);
+}
+
+.dark-gradient-bg {
+  background: radial-gradient(circle at 0% 0%, #243949 0%, #517fa4 100%);
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+

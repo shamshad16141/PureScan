@@ -119,22 +119,15 @@ export default function App() {
             {/* Header */}
             <header className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white shadow-lg shadow-indigo-200">
-                  <Sparkles className="w-6 h-6" />
+                <div className="w-12 h-12 flex items-center justify-center">
+                  <img src="/Pure.png" alt="PureScan Logo" className="w-12 h-12 rounded-md object-cover shadow-lg shadow-indigo-200 dark:shadow-none border border-stone-200 dark:border-stone-700" />
                 </div>
                 <div>
                   <h1 className="font-display font-bold text-xl tracking-tight dark:text-stone-100">PureScan</h1>
-                  <p className="text-[10px] text-stone-400 dark:text-stone-500 font-bold uppercase tracking-widest">AI Health Assistant</p>
+                  <p className="text-[10px] text-stone-400 dark:text-stone-500 font-bold uppercase tracking-widest">AI Product Scanner</p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <button 
-                  onClick={() => setIsAgeModalOpen(true)}
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white dark:bg-stone-900 border border-stone-100 dark:border-stone-800 shadow-sm text-xs font-bold text-stone-600 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors"
-                >
-                  <User className="w-3.5 h-3.5 text-indigo-500" />
-                  {userAge ? `${userAge}y` : 'Set Age'}
-                </button>
                 <button 
                   onClick={() => setIsSettingsOpen(true)}
                   className="p-2 rounded-full bg-white dark:bg-stone-900 border border-stone-100 dark:border-stone-800 shadow-sm hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors"
@@ -145,7 +138,7 @@ export default function App() {
             </header>
 
             {/* Hero / CTA */}
-            <section className="relative p-8 rounded-[2.5rem] bg-indigo-600 text-white overflow-hidden shadow-2xl shadow-indigo-200">
+            <section className="relative p-8 rounded-[2.5rem] bg-indigo-600 text-white overflow-hidden shadow-2xl shadow-indigo-200 dark:shadow-none">
               <div className="relative z-10 space-y-4">
                 <h2 className="text-3xl font-display font-bold leading-tight">
                   Know what's <br /> inside your food.

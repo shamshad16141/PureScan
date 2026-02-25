@@ -67,7 +67,7 @@ export async function analyzeIngredients(base64Image: string, userAge?: number):
     1. EXHAUSTIVE EXTRACTION: Identify the "Ingredients" section and extract EVERY SINGLE ingredient listed. Do not skip any, even if they seem minor (like salt, water, or spices).
     2. NORMALIZATION: Normalize names (e.g., E102 -> Tartrazine, INS 330 -> Citric Acid). Keep the original text as 'originalName'.
     3. INDIVIDUAL ANALYSIS: For EVERY extracted ingredient, provide a description, its purpose, and its health impact.
-    4. HEALTH SCORE: Calculate a score (0-100) based on the cumulative impact of all ingredients.
+    4. HEALTH SCORE: Calculate a score (0-95) based on the cumulative impact of all ingredients. Ensure the score does not exceed 95, even for the healthiest products.
     5. LANGUAGE: Use simple, non-medical language that a regular consumer can understand.
     6. ERROR HANDLING: If the image does not contain a clear ingredient list, state this clearly in the 'summary' field.
     ${userAge ? `7. AGE-SPECIFIC: The user is ${userAge} years old. Provide specific safety warnings and recommendations tailored for this age group in the 'warnings.ageSpecific' field.` : ""}
